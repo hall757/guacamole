@@ -45,7 +45,7 @@ run mkdir -p /var/lib/guacamole/classpath ;\
     mv guacamole-0.9.2.war /var/lib/tomcat6/webapps/guacamole.war ;\
     pushd /var/lib/tomcat6/webapps ;\
     ln -s guacamole.war ROOT.war ;\
-    cd /usr/share/tomcat ;\
+    cd ~tomcat ;\
     ln -s /etc/guacamole .guacamole ;\
     popd ;\
     rm -Rf /tmp/* ;\
