@@ -5,8 +5,6 @@ Dockerfile for quacamole 0.9.2
 
 Based on centos6
 
-Warning: This is a work in progress
-
 ---
 Author
 ===
