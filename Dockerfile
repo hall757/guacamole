@@ -31,6 +31,7 @@ add http://downloads.sourceforge.net/project/guacamole/current/extensions/guacam
 # Install my guacamole RPMS, tomcat, monit, dependancies & basic config
 run mkdir -p /var/lib/guacamole/classpath ;\
     chmod 700 /etc/monitrc; \
+    rpm -Uvh http://epel.mirror.constant.com/6/i386/epel-release-6-8.noarch.rpm 2> /dev/null ;\
     yum -y install tar java-1.7.0-openjdk tomcat6 monit 2> /dev/null ;\
     tar -zxf mysql-connector-java-5.1.32.tar.gz ;\
     tar -zxf guacamole-auth-mysql-0.9.2.tar.gz ;\
@@ -40,7 +41,6 @@ run mkdir -p /var/lib/guacamole/classpath ;\
     mv guacamole-auth-mysql-0.9.2/lib/* /var/lib/guacamole/classpath ;\
     mv guacamole-auth-ldap-0.9.2/lib/* /var/lib/guacamole/classpath ;\
     mv guacamole-auth-noauth-0.9.2/lib/* /var/lib/guacamole/classpath ;\
-    rpm -Uvh http://epel.mirror.constant.com/6/i386/epel-release-6-8.noarch.rpm 2> /dev/null ;\
     yum --nogpgcheck -y localinstall guacd*.x86_64.rpm libguac*.x86_64.rpm 2> /dev/null ;\
     mv guacamole-0.9.2.war /var/lib/tomcat6/webapps/guacamole.war ;\
     pushd /var/lib/tomcat6/webapps ;\
