@@ -18,7 +18,7 @@ Why are there binaries in this project?
 My first try at this included the whole build environment to install guacd from
 source.  The resulting docker image was too big and took forever to deploy.
 
-I couldn't find a repo with verssion 0.9.2 of docker packaged for centos6.
+I couldn't find a repo with version 0.9.2 of docker packaged for centos6.
 I built my own based on a SRPM found on fedora rawhide (guacamole-server-0.9.2-2.fc22.src.rpm).
 
 Those binary RPMS build by me are included in this package until I find a version that
