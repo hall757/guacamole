@@ -1,0 +1,14 @@
+# This monitrc file is used for testing.  It opens the 
+# web portal and loads additional daemons.
+
+set httpd
+	port 2812
+	allow 0.0.0.0/0.0.0.0
+
+check process rsyslog with pidfile /var/run/syslogd.pid
+	start program = "/etc/rc.d/init.d/rsyslog start"
+	stop program = "/etc/rc.d/init.d/rsyslog stop"
+
+# The production monitrc file is appended 
+# here when the test container is build
+

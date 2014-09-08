@@ -32,6 +32,7 @@ run cd /tmp ;\
     mkdir -p /var/lib/guacamole/classpath ;\
     mv monitrc /etc/monitrc ;\
     chmod 700 /etc/monitrc ;\
+    yum -y update ;\
     rpm -Uvh http://epel.mirror.constant.com/6/i386/epel-release-6-8.noarch.rpm 2> /dev/null ;\
     yum -y install tar java-1.7.0-openjdk tomcat6 monit 2> /dev/null ;\
     mv *.jar /var/lib/guacamole/classpath ;\
