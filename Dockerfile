@@ -81,8 +81,10 @@ RUN cd /tmp && \
 
 ### Configure Service Startup
 ADD rc.local /etc/rc.local
-RUN chmod a+x /etc/rc.local ;\
-    rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
+RUN chmod a+x /etc/rc.local
+
+### Disable SSH in the container
+#   rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 ### END
 ### To make this a functional guacamole container, you must map /etc/guacamole of this container
