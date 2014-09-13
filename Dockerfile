@@ -49,6 +49,7 @@ RUN cd /tmp && \
     wget -q --span-hosts http://downloads.sourceforge.net/project/guacamole/current/extensions/guacamole-auth-mysql-${GUAC_VER}.tar.gz && \
     tar -zxf guacamole-auth-mysql-$GUAC_VER.tar.gz && \
     mv -f `find . -type f -name '*.jar'` /var/lib/guacamole/classpath && \
+    mv -f guacamole-auth-mysql-$GUAC_VER/schema/*.sql /root &&\
     rm -Rf /tmp/*
 
 ### Install dependancies for mysql authentication module
