@@ -24,7 +24,7 @@ RUN apt-get update && \
 ### Install the authentication extensions in the classpath folder
 ### and the client app in the tomcat webapp folder
 ### Version of guacamole to be installed
-ENV GUAC_VER 0.9.2
+ENV GUAC_VER 0.9.3
 ### Version of mysql-connector-java to install
 ENV MCJ_VER 5.1.32
 ### config directory and classpath directory
