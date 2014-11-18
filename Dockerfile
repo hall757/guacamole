@@ -1,7 +1,7 @@
 ### Dockerfile for guacamole
 ### Includes all the optional authentication modules preinstalled
 
-FROM phusion/baseimage:0.9.13
+FROM phusion/baseimage:0.9.15
 MAINTAINER Randy Hall <randy.hall@open-source.guru>
 CMD ["/sbin/my_init"]
 ENV HOME /root
