@@ -8,7 +8,9 @@ Based on phusion
 Although you can run guacamole from this container it is used a a base for the following 
 
 hall/guacamole-guacd - runs only guacd and exports the ports for other containers
+
 hall/guacamole-mysql - runs the web server portion of guacamole and links to a mysql container
+
 hall/guacamole-demo - demo that connects to itself
 
 ---
