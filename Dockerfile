@@ -66,7 +66,7 @@ RUN cd /var/lib/tomcat7/webapps && \
     ln -s guacamole-$GUAC_VER.war ROOT.war && \
     ln -s guacamole-$GUAC_VER.war guacamole.war 
 
-### Compile and install guacaole server
+### Compile and install guacamole server
 RUN cd /tmp && \
     wget -q --span-hosts http://sourceforge.net/projects/guacamole/files/current/source/guacamole-server-${GUAC_VER}.tar.gz && \
     tar -zxf guacamole-server-$GUAC_VER.tar.gz && \
@@ -92,3 +92,8 @@ RUN chmod a+x /etc/rc.local
 ### To a folder on your host machine.  You can also build a new container based on this one
 ### adding your config files directly inside your new container.  See the sampleconfigs directory
 ### for examples.
+###
+### This container is used as a base for
+### hall/guacamole-guacd - Runs only the guqcd daemon and exports the ports to other containers
+### hall/guacamole-mysql - Links to hall/quacamole-guacd, stackbrew/mysql and stores the config
+###                        database in a persistent container.
