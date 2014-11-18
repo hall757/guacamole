@@ -20,7 +20,7 @@ Build from docker file:
 ```
 git clone git@github.com:hall757/guacamole.git
 cd guacamole
-docker build -t guacamole . 
+docker build -t hall/guacamole . 
 ```
 
 You can also obtain it via:  
@@ -37,7 +37,7 @@ Create your guacamole config directory and populate with the guacamole.propertie
 See the sampleconfig directory.  Then launch with the following.
 
 ```
-docker run -d -v /your-config-location:/etc/guacamole -p 8080:8080 guacamole
+docker run -d -v /your-config-location:/etc/guacamole -p 8080:8080 hall/guacamole
 ```
 
 Browse to ```http://your-host-ip:8080```
