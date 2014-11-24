@@ -80,6 +80,15 @@ RUN cd /tmp && \
     ln -s /etc/guacamole .guacamole && \
     rm -Rf /tmp/*
 
+### Install HMAC Authentication module
+#   Installed as precompiled jar so the container doesn't get bloated
+#
+#   get clone https://github.com/grncdr/guacamole-auth-hmac.git
+#   cd guacamole-auth-hmac
+#   mvn package
+#   cp target/guacamole-auth-hmac-1.0-SNAPSHOT.jar /var/lib/tomcat7/webapps
+ADD guacamole-auth-hmac-1.0-SNAPSHOT.jar /var/lib/guacamole/classpath/guacamole-auth-hmac-1.0-SNAPSHOT.jar
+
 ### Configure Service Startup
 ADD rc.local /etc/rc.local
 RUN chmod a+x /etc/rc.local
