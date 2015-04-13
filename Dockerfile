@@ -24,9 +24,11 @@ RUN apt-get update && \
 ### Install the authentication extensions in the classpath folder
 ### and the client app in the tomcat webapp folder
 ### Version of guacamole to be installed
-ENV GUAC_VER 0.9.3
+ENV GUAC_VER 0.9.6
 ### Version of mysql-connector-java to install
 ENV MCJ_VER 5.1.32
+### Version of postgresql-connector-java to install
+ENV PCJ_VER 9.4-1201
 ### config directory and classpath directory
 run mkdir -p /etc/guacamole /var/lib/guacamole/classpath 
 
@@ -44,18 +46,25 @@ RUN cd /tmp && \
     mv -f `find . -type f -name '*.jar'` /var/lib/guacamole/classpath && \
     rm -Rf /tmp/*
 
-### Install MySQL Authentication Module
+### Install JDBC Authentication Module
 RUN cd /tmp && \
-    wget -q --span-hosts http://downloads.sourceforge.net/project/guacamole/current/extensions/guacamole-auth-mysql-${GUAC_VER}.tar.gz && \
-    tar -zxf guacamole-auth-mysql-$GUAC_VER.tar.gz && \
+    wget -q --span-hosts http://downloads.sourceforge.net/project/guacamole/current/extensions/guacamole-auth-jdbc-${GUAC_VER}.tar.gz && \
+    tar -zxf guacamole-auth-jdbc-$GUAC_VER.tar.gz && \
     mv -f `find . -type f -name '*.jar'` /var/lib/guacamole/classpath && \
-    mv -f guacamole-auth-mysql-$GUAC_VER/schema/*.sql /root &&\
+    mkdir -p /root/mysql/ && mv -f guacamole-auth-jdbc-$GUAC_VER/mysql/schema/*.sql /root/mysql/ &&\
+    mkdir -p /root/postgresql/ && mv -f guacamole-auth-jdbc-$GUAC_VER/postgresql/schema/*.sql /root/postgresql &&\
     rm -Rf /tmp/*
 
 ### Install dependancies for mysql authentication module
 RUN cd /tmp && \
     wget -q --span-hosts http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MCJ_VER}.tar.gz && \
     tar -zxf mysql-connector-java-$MCJ_VER.tar.gz && \
+    mv -f `find . -type f -name '*.jar'` /var/lib/guacamole/classpath && \
+    rm -Rf /tmp/*
+
+### Install dependancies for postgresql authentication module
+RUN cd /tmp && \
+    wget -q --span-hosts https://jdbc.postgresql.org/download/postgresql-${PCJ_VER}.jdbc41.jar && \
     mv -f `find . -type f -name '*.jar'` /var/lib/guacamole/classpath && \
     rm -Rf /tmp/*
 
