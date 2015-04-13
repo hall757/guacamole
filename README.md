@@ -1,7 +1,7 @@
 Guacamole
 ====
 
-Dockerfile for quacamole 0.9.3
+Dockerfile for quacamole 0.9.6
 
 Based on phusion
 
