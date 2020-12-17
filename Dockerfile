@@ -2,7 +2,7 @@
 ### Includes all the optional authentication modules preinstalled
 
 FROM phusion/baseimage:0.9.15
-MAINTAINER Randy Hall <randy.hall@open-source.guru>
+LABEL author="Randy Hall <randy.hall@open-source.guru>"
 CMD ["/sbin/my_init"]
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
@@ -28,7 +28,7 @@ ENV GUAC_VER 0.9.3
 ### Version of mysql-connector-java to install
 ENV MCJ_VER 5.1.32
 ### config directory and classpath directory
-run mkdir -p /etc/guacamole /var/lib/guacamole/classpath 
+RUN mkdir -p /etc/guacamole /var/lib/guacamole/classpath 
 
 ### Install LDAP Authentication extension
 RUN cd /tmp && \
